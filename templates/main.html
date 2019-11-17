@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+{%block content %}
+<form method="POST" action="">
+    {{ form.csrf_token() }}
+    <center>{{form.inputstring.label}}<br></center>
+    <center>{{form.inputstring}}<br></center>
+    <ul class=errors>
+    {% for error in form.inputstring.errors %}
+         <li class="error" style="color:red;">{{ error }}</li>
+    {% endfor %}
+    </ul>
+    <center>{{form.stringsize.label}}<br></center>
+    <center>{{form.stringsize}}<br></center>
+    <ul class=errors>
+            {% for error in form.stringsize.errors %}
+            <li class="error">{{ error }}</li>
+            {% endfor %}
+    </ul>
+    <center>{{form.patternstring.label}}<br></center>
+    <center>{{form.patternstring}}<br></center>
+    <center>{{form.search()}}<br></center>
+</form>
+{% endblock %}
