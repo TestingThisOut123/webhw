@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/inputstyle.css">
+        {% block script%}
+        <script>
+async function getxkcd(word) {
+    let init = {
+        mode: 'cors',
+        method: 'GET',
+    }
+    //let resp = await fetch("https://xkcd.com/353/info.0.json", init);
+    var d="proxy/"
+    var e=word
+    console.log(e)
+    console.log()
+    d.concat(e)
+    let resp = await fetch(d, init);
+    return resp.json();
+}
+        async function main(word) {
+            let p = await getxkcd(word);
+            console.log(p)
+        }
+    </script>
+        {%endblock %}
+    </head>
+    <body>
+        <nav>
+            <h1><center>Word Finder Humberto Garduno-Hernandez</center></h1>
+        </nav>
+
+        {% block content %}
+        
+        {% endblock %}
+
+        <footer>
+            <p><center>https://github.com/TestingThisOut123/webhw.git</center></p>
+        </footer>
+    </body>
+</html>
